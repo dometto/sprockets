@@ -55,6 +55,7 @@ module Sprockets
     # Returns an empty `Array` if the directory does not exist.
     def entries(path)
       if File.directory?(path)
+        puts "DEBUG #{path.inspect} #{Dir.entries(path, :encoding => Encoding.default_internal).inspect}"
         Dir.entries(path, :encoding => Encoding.default_internal).reject! { |entry|
           entry =~ /^\.|~$|^\#.*\#$/
         }.sort!
